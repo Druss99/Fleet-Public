@@ -15,10 +15,10 @@ helm:
         enabled: false
       postgresql:
         password:
-        valueFrom:
-          secretKeyRef:
-            name: authentik
-            key: postgresql
+          valueFrom:
+            secretKeyRef:
+              name: authentik
+              key: postgresql
 
     server:
       ingress:
@@ -31,9 +31,9 @@ helm:
       enabled: true
       auth:
         password:
-        valueFrom:
-          secretKeyRef:
-            name: authentik
-            key: postgresql
+          valueFrom:
+            secretKeyRef:
+              name: authentik
+              key: postgresql
     redis:
       enabled: true
