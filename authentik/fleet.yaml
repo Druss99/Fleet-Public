@@ -2,7 +2,7 @@ namespace: authentik
 
 helm:
   releaseName: "authentik"
-  chart: "authentik/authentik"
+  chart: "authentik"
   repo: "https://charts.goauthentik.io"
   values:
     authentik:
