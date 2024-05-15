@@ -4,36 +4,4 @@ helm:
   releaseName: "authentik"
   chart: "authentik"
   repo: "https://charts.goauthentik.io"
-  values:
-    authentik:
-      secret_key:
-        valueFrom:
-          secretKeyRef:
-            name: authentik
-            key: authentik
-      error_reporting:
-        enabled: false
-      postgresql:
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: authentik
-              key: postgresql
-
-    server:
-      ingress:
-        ingressClassName: traefik-external
-        enabled: true
-        hosts:
-          - authentik.russellhost.org
-
-    postgresql:
-      enabled: true
-      auth:
-        password:
-          valueFrom:
-            secretKeyRef:
-              name: authentik
-              key: postgresql
-    redis:
-      enabled: true
+  valuesFile: values.yaml
