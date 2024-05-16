@@ -1,0 +1,7 @@
+defaultNamespace: vault
+
+helm:
+  releaseName: "vault"
+  chart: "vault"
+  repo: "https://helm.releases.hashicorp.com"
+  valuesFile: values.yaml
