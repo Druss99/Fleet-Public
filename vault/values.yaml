@@ -12,8 +12,8 @@ server:
       storage "file" {
         path = "/vault/data"
       }
-    nodeSelector:
-      longhorn: "true"
+  nodeSelector:
+    longhorn: "true"
 
   service:
     enabled: true
