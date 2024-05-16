@@ -1,4 +1,4 @@
-namespace: authentik
+defaultNamespace: authentik
 
 helm:
   releaseName: "authentik"

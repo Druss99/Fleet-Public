@@ -1,4 +1,4 @@
-namespace: kube-system
+defaultNamespace: kube-system
 
 helm:
   releaseName: "csi-secrets-store"
