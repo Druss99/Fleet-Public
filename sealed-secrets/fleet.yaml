@@ -1,6 +1,0 @@
-defaultNamespace: kube-system
-
-helm:
-  releaseName: "sealed-secrets"
-  chart: "sealed-secrets"
-  repo: "https://bitnami-labs.github.io/sealed-secrets"
