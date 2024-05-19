@@ -3,12 +3,12 @@ global:
     - name: PG_PASS
       valueFrom:
         secretKeyRef:
-          name: authentik
+          name: authentik-passwords
           key: postgresql
     - name: AUTHENTIK_SECRET_KEY
       valueFrom:
         secretKeyRef:
-          name: authentik
+          name: authentik-passwords
           key: authentik
 
 authentik:
