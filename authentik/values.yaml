@@ -1,17 +1,30 @@
-authentik:
-  secret_key:
-    valueFrom:
-      secretKeyRef:
-        name: authentik
-        key: authentik
-  error_reporting:
-    enabled: false
-  postgresql:
-    password:
+global:
+  env:
+    - name: PG_PASS
       valueFrom:
         secretKeyRef:
           name: authentik
           key: postgresql
+    - name: AUTHENTIK_SECRET_KEY
+      valueFrom:
+        secretKeyRef:
+          name: authentik
+          key: authentik
+
+authentik:
+  # secret_key:
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: authentik
+  #       key: authentik
+  error_reporting:
+    enabled: false
+  # postgresql:
+  #   password:
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: authentik
+  #         key: postgresql
 
 server:
   ingress:
@@ -22,11 +35,11 @@ server:
 
 postgresql:
   enabled: true
-  auth:
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: authentik
-          key: postgresql
+  # auth:
+  #   password:
+  #     valueFrom:
+  #       secretKeyRef:
+  #         name: authentik
+  #         key: postgresql
 redis:
   enabled: true
