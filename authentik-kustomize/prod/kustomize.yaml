@@ -4,6 +4,11 @@ kind: Kustomization
 namespace: authentik
 
 helmCharts:
+  - name: authentik-remote-cluster
+    repo: https://charts.goauthentik.io
+    releaseName: authentik-remote-cluster
+    namespace: authentik
+
   - name: authentik
     repo: https://charts.goauthentik.io
     releaseName: authentik
