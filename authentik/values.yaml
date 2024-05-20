@@ -1,22 +1,26 @@
-# global:
-#   env:
-#     - name: AUTHENTIK_POSTGRESQL__PASSWORD
-#       valueFrom:
-#         secretKeyRef:
-#           name: authentik-passwords
-#           key: postgresql
-#     - name: AUTHENTIK_SECRET_KEY
-#       valueFrom:
-#         secretKeyRef:
-#           name: authentik-passwords
-#           key: authentik
+global:
+  env:
+    - name: POSTGRES_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: authentik-passwords
+          key: postgresql
+    - name: AUTHENTIK_SECRET_KEY
+      valueFrom:
+        secretKeyRef:
+          name: authentik-passwords
+          key: authentik
 
 authentik:
-  secret_key: REPLACEME_AUTHENTIK_SECRET_KEY
+  # secret_key:
+  #   secretName: authentik-passwords
+  #   secretKey: authentik
   error_reporting:
     enabled: false
-  postgresql:
-    password: REPLACEME_POSTGRESQL_PASSWORD
+  # postgresql:
+  #   password:
+  #     secretName: authentik-passwords
+  #     secretKey: postgresql
 
 server:
   ingress:
@@ -27,8 +31,9 @@ server:
 
 postgresql:
   enabled: true
-  auth:
-    password: REPLACEME_POSTGRESQL_PASSWORD
-
+  # auth:
+  #   password:
+  #     secretName: authentik-passwords
+  #     secretKey: postgresql
 redis:
   enabled: true
