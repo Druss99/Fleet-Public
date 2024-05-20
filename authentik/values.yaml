@@ -39,7 +39,7 @@ postgresql:
     password:
       valueFrom:
         secretKeyRef:
-          name: authentik
+          name: authentik-passwords
           key: postgresql
 redis:
   enabled: true
