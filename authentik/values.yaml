@@ -1,15 +1,15 @@
-# global:
-#   env:
-#     - name: PG_PASS
-#       valueFrom:
-#         secretKeyRef:
-#           name: authentik-passwords
-#           key: postgresql
-#     - name: AUTHENTIK_SECRET_KEY
-#       valueFrom:
-#         secretKeyRef:
-#           name: authentik-passwords
-#           key: authentik
+global:
+  env:
+    - name: POSTGRES_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: authentik-passwords
+          key: postgresql
+    - name: AUTHENTIK_SECRET_KEY
+      valueFrom:
+        secretKeyRef:
+          name: authentik-passwords
+          key: authentik
 
 authentik:
   # secret_key:
