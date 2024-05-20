@@ -10,6 +10,13 @@ global:
         secretKeyRef:
           name: authentik-passwords
           key: authentik
+  postgresql:
+    auth:
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: authentik-passwords
+            key: postgresql
 
 authentik:
   # secret_key:
