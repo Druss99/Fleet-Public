@@ -13,18 +13,14 @@
 
 authentik:
   secret_key:
-    valueFrom:
-      secretKeyRef:
-        name: authentik-passwords
-        key: authentik
+    secretName: authentik-passwords
+    secretKey: authentik
   error_reporting:
     enabled: false
   postgresql:
     password:
-      valueFrom:
-        secretKeyRef:
-          name: authentik-passwords
-          key: postgresql
+      secretName: authentik-passwords
+      secretKey: postgresql
 
 server:
   ingress:
@@ -37,9 +33,7 @@ postgresql:
   enabled: true
   auth:
     password:
-      valueFrom:
-        secretKeyRef:
-          name: authentik-passwords
-          key: postgresql
+      secretName: authentik-passwords
+      secretKey: postgresql
 redis:
   enabled: true
