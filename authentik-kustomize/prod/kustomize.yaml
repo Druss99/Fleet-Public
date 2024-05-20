@@ -16,3 +16,4 @@ patches:
 resources:
   - ingress.yaml
   - default-headers.yaml
+  - namespace.yaml

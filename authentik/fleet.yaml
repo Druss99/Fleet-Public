@@ -1,8 +1,8 @@
-defaultNamespace: authentik
+# defaultNamespace: authentik
 
-helm:
-  releaseName: "authentik"
-  chart: "authentik"
-  repo: "https://charts.goauthentik.io"
-  valuesFiles:
-    - values.yaml
+# helm:
+#   releaseName: "authentik"
+#   chart: "authentik"
+#   repo: "https://charts.goauthentik.io"
+#   valuesFiles:
+#     - values.yaml
