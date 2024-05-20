@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: password_patch
+authentik:
+  secret_key:
+    valueFrom:
+      secretKeyRef:
+        name: authentik-passwords
+        key: authentik
+  postgresql:
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: authentik-passwords
+          key: postgresql
+postgresql:
+  auth:
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: authentik-passwords
+          key: postgresql

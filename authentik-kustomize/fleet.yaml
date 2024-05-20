@@ -1,0 +1,4 @@
+defaultNamespace: authentik
+
+kustomize:
+  dir: ./prod

@@ -1,0 +1,20 @@
+authentik:
+  secret_key: "replaceme"
+  error_reporting:
+    enabled: false
+  postgresql:
+    password: "replaceme"
+
+server:
+  ingress:
+    ingressClassName: traefik-external
+    enabled: true
+    hosts:
+      - authentik.russellhost.org
+
+postgresql:
+  enabled: true
+  auth:
+    password: "replaceme"
+redis:
+  enabled: true
