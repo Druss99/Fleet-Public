@@ -4,4 +4,6 @@ helm:
   releaseName: "authentik"
   chart: "authentik"
   repo: "https://charts.goauthentik.io"
-  valuesFile: values.yaml
+  valuesFiles: 
+    - values.yaml
+    - secret_values.yaml
