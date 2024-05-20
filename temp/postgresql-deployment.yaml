@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: authentik-postgres
+  name: authentik-postgres
+  namespace: authentik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authentik-postgres
+  template:
+    metadata:
+      labels:
+        app: authentik-postgres
+    spec:
+      containers:
+        - env:
+            - name: AUTHENTIK_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-passwords
+                  key: authentik
+            - name: PG_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-passwords
+                  key: postgresql
+            - name: POSTGRES_DB
+              value: authentik
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-passwords
+                  key: postgresql
+            - name: POSTGRES_USER
+              value: authentik
+          image: docker.io/library/postgres:12-alpine
+          livenessProbe:
+            exec:
+              command:
+                - pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}
+            failureThreshold: 5
+            initialDelaySeconds: 20
+            periodSeconds: 30
+            timeoutSeconds: 5
+          name: postgresql
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: database
+      restartPolicy: Always
+      volumes:
+        - name: database
+          persistentVolumeClaim:
+            claimName: database

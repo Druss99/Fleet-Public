@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: authentik-redis
+  name: authentik-redis
+  namespace: authentik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authentik-redis
+  template:
+    metadata:
+      labels:
+        app: authentik-redis
+    spec:
+      containers:
+        - args:
+            - --save
+            - "60"
+            - "1"
+            - --loglevel
+            - warning
+          image: docker.io/library/redis:alpine
+          livenessProbe:
+            exec:
+              command:
+                - redis-cli ping | grep PONG
+            failureThreshold: 5
+            initialDelaySeconds: 20
+            periodSeconds: 30
+            timeoutSeconds: 3
+          name: redis
+          volumeMounts:
+            - mountPath: /data
+              name: redis
+      restartPolicy: Always
+      volumes:
+        - name: redis
+          persistentVolumeClaim:
+            claimName: redis

@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: authentik-server
+  name: authentik-server
+  namespace: authentik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authentik-server
+  template:
+    metadata:
+      labels:
+        app: authentik-server
+    spec:
+      containers:
+        - env:
+            - name: AUTHENTIK_POSTGRESQL__HOST
+              value: postgresql
+            - name: AUTHENTIK_POSTGRESQL__NAME
+              value: authentik
+            - name: AUTHENTIK_POSTGRESQL__PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-passwords
+                  key: postgresql
+            - name: AUTHENTIK_POSTGRESQL__USER
+              value: authentik
+            - name: AUTHENTIK_REDIS__HOST
+              value: redis
+            - name: AUTHENTIK_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-passwords
+                  key: authentik
+            - name: PG_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-passwords
+                  key: postgresql
+        - image: ghcr.io/goauthentik/server:2024.4.2
+        - name: authentik-server
+        - ports:
+            - containerPort: 9000
+            - containerPort: 9443
+        - volumeMounts:
+            - mountPath: /media
+              name: server-claim0
+            - mountPath: /templates
+              name: server-claim1
+      restartPolicy: Always
+      volumes:
+        - name: server-claim0
+          persistentVolumeClaim:
+            claimName: server-claim0
+        - name: server-claim1
+          persistentVolumeClaim:
+            claimName: server-claim1
