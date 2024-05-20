@@ -4,11 +4,8 @@ helm:
   releaseName: "authentik"
   chart: "authentik"
   repo: "https://charts.goauthentik.io"
-  valuesContent: |-
-    authentik:
-      secretKey: {{ (lookup "secret" "authentik-passwords" "authentik" .Namespace) }}
-      postgresql:
-        password: {{ (lookup "secret" "authentik-passwords" "postgresql" .Namespace) }}
-    postgresql:
-      auth:
-        password: {{ (lookup "secret" "authentik-passwords" "postgresql" .Namespace) }}
+  valuesFrom:
+    - secretKeyRef:
+        name: authentik-secret-values
+        namespace: authentik
+        key: values.yaml
