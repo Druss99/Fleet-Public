@@ -6,3 +6,4 @@ helm:
   repo: "https://charts.goauthentik.io"
   valuesFiles:
     - values.yaml
+    - secrets.yaml
