@@ -1,27 +1,29 @@
-global:
-  env:
-    - name: PG_PASS
-      valueFrom:
-        secretKeyRef:
-          name: authentik-passwords
-          key: postgresql
+# global:
+#   env:
+#     - name: PG_PASS
+#       valueFrom:
+#         secretKeyRef:
+#           name: authentik-passwords
+#           key: postgresql
 
-    - name: AUTHENTIK_SECRET_KEY
-      valueFrom:
-        secretKeyRef:
-          name: authentik-passwords
-          key: authentik
+#     - name: AUTHENTIK_SECRET_KEY
+#       valueFrom:
+#         secretKeyRef:
+#           name: authentik-passwords
+#           key: authentik
 
-    - name: POSTGRES_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: authentik-passwords
-          key: postgresql
+#     - name: POSTGRES_PASSWORD
+#       valueFrom:
+#         secretKeyRef:
+#           name: authentik-passwords
+#           key: postgresql
 
 authentik:
   error_reporting:
     enabled: false
-
+  secret_key: { { .Values.authentik.secretKey } }
+  postgresql:
+    password: { { .Values.authentik.postgresql.password } }
 server:
   ingress:
     ingressClassName: traefik-external
@@ -31,6 +33,8 @@ server:
 
 postgresql:
   enabled: true
+  auth:
+    password: { { .Values.postgresql.auth.password } }
 
 redis:
   enabled: true
