@@ -1,0 +1,13 @@
+data:
+  name: "vaultwarden-data"
+  size: "15Gi"
+  class: "longhorn"
+
+domain: "https://vault2.russellhost.org"
+
+## Token for the admin interface, preferably an Argon2 PCH string
+adminToken:
+  existingSecret: "vault-admin-creds"
+  existingSecretKey: "admin-token"
+
+timeZone: "America/New_York"

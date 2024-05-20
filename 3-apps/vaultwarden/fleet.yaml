@@ -1,0 +1,7 @@
+defaultNamespace: vaultwarden
+
+helm:
+  releaseName: "vaultwarden"
+  chart: "vaultwarden"
+  repo: "https://guerzon.github.io/vaultwarden"
+  valuesFile: values.yaml
