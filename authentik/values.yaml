@@ -17,8 +17,6 @@ global:
           secretKeyRef:
             name: authentik-passwords
             key: postgresql
-  authentik:
-    secret_key:
 
 authentik:
   # secret_key:
