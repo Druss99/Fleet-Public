@@ -1,6 +1,6 @@
 global:
   env:
-    - name: POSTGRES_PASSWORD
+    - name: PG_PASS
       valueFrom:
         secretKeyRef:
           name: authentik-passwords
