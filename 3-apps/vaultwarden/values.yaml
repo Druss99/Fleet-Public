@@ -3,7 +3,7 @@ data:
   size: "15Gi"
   class: "longhorn"
 
-domain: "https://vault2.russellhost.org"
+domain: "https://vault.russellhost.org"
 
 ## Token for the admin interface, preferably an Argon2 PCH string
 adminToken:

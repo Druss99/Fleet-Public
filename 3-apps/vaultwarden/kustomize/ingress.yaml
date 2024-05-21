@@ -9,12 +9,12 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.vault2.russellhost.org`) # change to your domain
+    - match: Host(`www.vault.russellhost.org`) # change to your domain
       kind: Rule
       services:
         - name: vaultwarden
           port: 80
-    - match: Host(`vault2.russellhost.org`) # change to your domain
+    - match: Host(`vault.russellhost.org`) # change to your domain
       kind: Rule
       services:
         - name: vaultwarden
