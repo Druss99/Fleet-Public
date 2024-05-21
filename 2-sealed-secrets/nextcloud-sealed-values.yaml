@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: nextcloud-secret-values
+  namespace: nextcloud
+spec:
+  encryptedData:
+    values.yaml: AgCfJxslTj/XALdxkU+qILDWn2DB5/25PZjKqv1v6KwjGKjX2yDoblipHCq76q1St5JeFDWYLZ/uX3u5pj732wn9DtYcqvpwLiGvtpfOStR0dan/3m08v+J7N/AewLxE5Gb4yFKkEjLex5CCddtYiah98bwgfjy+zTWRCRqgHvfxmpRIBLJARW5BrGZ1NOEl1R6Tv1s7plRwcc2ullmyAcdmbtcMvHZrL0/wQS9gUGmqyH/I/52r7iA71LaO71uMBPPcT0h0KR+qIRyETNSOcYZ7MY+Ng4vW/R1QF2Mm9N7Rgr4s5/+YYBMG4BE1/Y7SnyN5ZNBGAMNTZD0hsEdc/xVtblTMdIY7/jkO3USXPn3gOg1387HZ6xPuAIiIFgH1iMeYW+cuSHwMqkjq63SPDmSusaNYA4/UIKt8uPgKImROgKaR37DVd1GlWy/pRUcLdcje1ao3rmM7wuUxC3B2svbfk8cOj79hja3hoywxDXaRoHfqiwc1xUGc2EhDKkbjwjVSYH7W6qDd0VfrGmD8SgU5xugeEq3TIgNeUbswKZtslTjdN2t67mBl0WKlzhcNXjLa7ES/nsP5Q8BFW5DLyEgjYYbqRIcKD8Yo7JdCuNhob0Cbf73m1yeCjBskr53mJB71M9/C9y0ovjtu88bGpbn+E3XykVWwpGfEQP7CvhIyq5Ya2RXaj07gpt5Sc2eneFqqme41AU95/PtYzo48cscwEFvp2uEPU2xDV3vpcKYO30umzk+cvLOoGUW8LGqEmSPLMWc2Cetw8r4W90l7tlfWQQ6CZW5S+4SLuTVtPTj99Iu2PAddNZppC+xEZdIXcuExJekkymktWiLjvQLLomc43Hv6eiQo+/Nl0Q01/iH4Wc8f9ybCdbxHol1Exfu4h5bF82Cy/S8j1Nkt7TGbWPOWfhRWe1f76wN045FSiPTGcPpGXogB0RKVvXqnmTx7jWcl9g/3KuSXsMGWs42tSnzxPp5uLbHkiUlHEgzAa+I5BtT4/x51f32C4fBs29ZfbVtJ
+  template:
+    metadata:
+      creationTimestamp: null
+      name: nextcloud-secret-values
+      namespace: nextcloud
