@@ -1,0 +1,18 @@
+nextcloud:
+  host: https://nextcloud.russellhost.org
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-creds
+    usernameKey: nextcloud-username
+    passwordKey: nextcloud-password
+
+persistence:
+  enabled: true
+  storageClass: longhorn
+  accessMode: ReadWriteOnce
+  size: 8Gi
+  nextcloudData:
+    enabled: true
+    storageClass: longhorn
+    accessMode: ReadWriteOnce
+    size: 8Gi

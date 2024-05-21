@@ -1,0 +1,14 @@
+defaultNamespace: nextcloud
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "nextcloud"
+  chart: "nextcloud"
+  repo: "https://nextcloud.github.io/helm/"
+  valuesFrom:
+    - secretKeyRef:
+        name: nextcloud-secret-values
+        namespace: nextcloud
+        key: values.yaml
