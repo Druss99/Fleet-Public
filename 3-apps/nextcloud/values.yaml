@@ -1,5 +1,5 @@
 nextcloud:
-  host: https://nextcloud.russellhost.org
+  host: nextcloud.russellhost.org
   existingSecret:
     enabled: true
     secretName: nextcloud-creds
