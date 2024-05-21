@@ -8,11 +8,7 @@ helm:
   chart: "nextcloud"
   repo: "https://nextcloud.github.io/helm/"
   valuesFrom:
-    - configMapKeyRef:
-        name: configmap-values
-        namespace: nextcloud
-        key: values.yaml
     - secretKeyRef:
-        name: authentik-secret-values
-        namespace: authentik
+        name: nextcloud-secret-values
+        namespace: nextcloud
         key: values.yaml
