@@ -1,5 +1,8 @@
 defaultNamespace: vaultwarden
 
+kustomize:
+  dir: ./
+
 helm:
   releaseName: "vaultwarden"
   chart: "vaultwarden"
