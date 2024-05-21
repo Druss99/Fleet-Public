@@ -1,0 +1,11 @@
+defaultNamespace: vaultwarden
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "vaultwarden"
+  chart: "vaultwarden"
+  repo: "https://guerzon.github.io/vaultwarden"
+  valuesFiles:
+    - values.yaml

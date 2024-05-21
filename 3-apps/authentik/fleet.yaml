@@ -1,5 +1,8 @@
 defaultNamespace: authentik
 
+kustomize:
+  dir: ./kustomize
+
 helm:
   releaseName: "authentik"
   chart: "authentik"
