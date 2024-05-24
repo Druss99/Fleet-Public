@@ -8,7 +8,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8006
-      name: http
+      name: proxmox-http
 ---
 kind: Endpoints
 apiVersion: v1
