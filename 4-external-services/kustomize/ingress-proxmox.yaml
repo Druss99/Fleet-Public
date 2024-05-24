@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox
+  namespace: external-services
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  rules:
+    - host: proxmox.russellhost.org
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: my-service
+              servicePort: 443
+  tls:
+    secretName: russellhost-tls

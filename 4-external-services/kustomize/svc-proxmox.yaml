@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: proxmox
+  namespace: external-services
+spec:
+  ports:
+  - protocol: TCP
+    port: 443
+    targetPort: 8006
+    name: http
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: proxmox
+  namespace: external-services
+subsets:
+  - addresses:
+    - ip: 192.168.50.252
+    ports:
+    - protocol: TCP
+      port: 8006
+      name: http
