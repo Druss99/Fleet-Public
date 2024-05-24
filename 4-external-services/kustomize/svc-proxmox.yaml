@@ -5,10 +5,10 @@ metadata:
   namespace: external-services
 spec:
   ports:
-  - protocol: TCP
-    port: 443
-    targetPort: 8006
-    name: http
+    - protocol: TCP
+      port: 80
+      targetPort: 8006
+      name: http
 ---
 kind: Endpoints
 apiVersion: v1
@@ -17,8 +17,8 @@ metadata:
   namespace: external-services
 subsets:
   - addresses:
-    - ip: 192.168.50.252
+      - ip: 192.168.50.252
     ports:
-    - protocol: TCP
-      port: 8006
-      name: http
+      - protocol: TCP
+        port: 8006
+        name: http
