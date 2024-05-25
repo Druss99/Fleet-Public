@@ -1,0 +1,4 @@
+defaultNamespace: external-services
+
+kustomize:
+  dir: ./kustomize
