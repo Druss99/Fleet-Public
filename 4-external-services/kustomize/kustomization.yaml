@@ -1,4 +1,5 @@
 resources:
   - default-headers.yaml
-  - proxmox.yaml
+  - proxmox-ingress.yaml
+  - proxmox-svc.yaml
   - proxmox-ingress.yaml
