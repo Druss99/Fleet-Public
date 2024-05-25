@@ -1,0 +1,23 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox
+  namespace: external-services
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`www.proxmox.russellhost.org`) # change to your domain
+      kind: Rule
+      services:
+        - name: proxmox
+          port: 80
+    - match: Host(`proxmox.russellhost.org`) # change to your domain
+      kind: Rule
+      services:
+        - name: proxmox
+          port: 80
+      middlewares:
+        - name: default-headers
+  tls:
+    certResolver: russellhost-tls
