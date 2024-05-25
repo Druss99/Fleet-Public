@@ -7,3 +7,4 @@ spec:
   ports:
     - port: 80
       targetPort: 8006
+  type: ClusterIP
