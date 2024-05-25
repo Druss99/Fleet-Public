@@ -1,5 +1,5 @@
 resources:
   - default-headers.yaml
-  - proxmox-endpoint.yaml
-  - proxmox-svc.yaml
-  - proxmox-ingress.yaml
+  - truenas-endpoint.yaml
+  - truenas-svc.yaml
+  - truenas-ingress.yaml
