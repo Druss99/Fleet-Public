@@ -1,0 +1,23 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: truenas
+  namespace: external-services
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`www.truenas.russellhost.org`) # change to your domain
+      kind: Rule
+      services:
+        - name: truenas-service
+          port: 80
+    - match: Host(`truenas.russellhost.org`) # change to your domain
+      kind: Rule
+      services:
+        - name: truenas-service
+          port: 80
+      middlewares:
+        - name: default-headers
+  tls:
+    certResolver: russellhost-tls
