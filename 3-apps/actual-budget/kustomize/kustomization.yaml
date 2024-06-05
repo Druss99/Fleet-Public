@@ -2,3 +2,4 @@ resources:
   - default-headers.yaml
   - ingress.yaml
   - deployment.yaml
+  - service.yaml
