@@ -1,0 +1,14 @@
+defaultNamespace: immich
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "immich"
+  chart: "immich"
+  repo: "https://immich-app.github.io/immich-charts"
+  valuesFrom:
+    - secretKeyRef:
+        name: immich-secret-values
+        namespace: immich
+        key: values.yaml
