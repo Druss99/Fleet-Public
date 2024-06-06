@@ -12,12 +12,12 @@ spec:
     - match: Host(`www.immich.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: immich
+        - name: immich-server
           port: 3001
     - match: Host(`immich.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: immich
+        - name: immich-server
           port: 3001
       middlewares:
         - name: default-headers
