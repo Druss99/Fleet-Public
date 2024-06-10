@@ -1,0 +1,14 @@
+defaultNamespace: obsidian-livesync
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "obsidian-livesync"
+  chart: "couchdb"
+  repo: "https://apache.github.io/couchdb-helm"
+  values:
+    createAdminSecret: false
+    persistentVolume:
+      enabled: true
+      storageClass: "longhorn"

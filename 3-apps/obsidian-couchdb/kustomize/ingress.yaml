@@ -1,0 +1,25 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: obsidian-livesync
+  namespace: obsidian-livesync
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`www.obsidian.russellhost.org`) # change to your domain
+      kind: Rule
+      services:
+        - name: obsidian-livesync
+          port: 80
+    - match: Host(`obsidian.russellhost.org`) # change to your domain
+      kind: Rule
+      services:
+        - name: obsidian-livesync
+          port: 80
+      middlewares:
+        - name: default-headers
+  tls:
+    secretName: russellhost-tls
