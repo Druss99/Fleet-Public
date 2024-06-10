@@ -8,7 +8,6 @@ helm:
   chart: "couchdb"
   repo: "https://apache.github.io/couchdb-helm"
   values:
-    createAdminSecret: false
     persistentVolume:
       enabled: true
       storageClass: "longhorn"
