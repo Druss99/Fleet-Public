@@ -12,13 +12,13 @@ spec:
     - match: Host(`www.obsidian.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: obsidian-livesync
-          port: 80
+        - name: obsidian-livesync-svc-couchdb
+          port: 5984
     - match: Host(`obsidian.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: obsidian-livesync
-          port: 80
+        - name: obsidian-livesync-svc-couchdb
+          port: 5984
       middlewares:
         - name: default-headers
   tls:
