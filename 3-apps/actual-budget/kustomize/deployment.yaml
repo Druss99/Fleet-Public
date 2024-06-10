@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: actual
+    app.kubernetes.io/name: actual
+  name: actual
+  namespace: actual-budget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actual
+  template:
+    metadata:
+      labels:
+        app: actual
+    spec:
+      nodeSelector:
+        worker: "true"
+      containers:
+        - env:
+            - name: ACTUAL_PORT
+              value: "5006"
+          image: docker.io/actualbudget/actual-server
+          imagePullPolicy: Always
+          name: actual
+          ports:
+            - containerPort: 5006
+          volumeMounts:
+            - mountPath: /data
+              name: actual
+      restartPolicy: Always
+      volumes:
+        - name: actual
+          persistentVolumeClaim:
+            claimName: actual

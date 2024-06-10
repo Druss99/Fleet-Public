@@ -1,0 +1,14 @@
+defaultNamespace: obsidian-livesync
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "obsidian-livesync"
+  chart: "couchdb"
+  repo: "https://apache.github.io/couchdb-helm"
+  valuesFrom:
+    - secretKeyRef:
+        name: obsidian-secret-values
+        namespace: obsidian-livesync
+        key: values.yaml

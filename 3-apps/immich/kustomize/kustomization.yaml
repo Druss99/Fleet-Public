@@ -1,0 +1,5 @@
+resources:
+  - default-headers.yaml
+  - ingress.yaml
+  - immich-pvc.yaml
+  # - immich-svc.yaml
