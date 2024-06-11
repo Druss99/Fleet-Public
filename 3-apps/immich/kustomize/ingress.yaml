@@ -9,12 +9,12 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.immich.russellhost.org`) # change to your domain
+    - match: Host(`www.photos.russellhost.org`) # change to your domain
       kind: Rule
       services:
         - name: immich-server
           port: 3001
-    - match: Host(`immich.russellhost.org`) # change to your domain
+    - match: Host(`photos.russellhost.org`) # change to your domain
       kind: Rule
       services:
         - name: immich-server
