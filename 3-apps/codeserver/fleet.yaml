@@ -1,0 +1,10 @@
+defaultNamespace: codeserver
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "code-server"
+  chart: "./chart"
+  valuesFiles:
+    - values.yaml
