@@ -12,12 +12,12 @@ spec:
     - match: Host(`www.code.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: codeserver
+        - name: code-server
           port: 80
     - match: Host(`code.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: codeserver
+        - name: code-server
           port: 80
       middlewares:
         - name: default-headers
