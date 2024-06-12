@@ -14,3 +14,7 @@ persistence:
   annotations: {}
   # existingClaim: ""
   # hostPath: /data
+extraArgs: [
+    - --auth
+    - false,
+  ]
