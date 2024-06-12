@@ -16,7 +16,7 @@ persistence:
   # hostPath: /data
 extraArgs:
   - --auth
-  - none,
+  - none
 # extraVars:
 #   - name: auth
 #     value: "none"
