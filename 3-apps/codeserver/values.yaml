@@ -16,5 +16,5 @@ persistence:
   # hostPath: /data
 extraArgs: [
     - --auth
-    - false,
+    - none,
   ]
