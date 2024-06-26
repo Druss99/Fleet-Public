@@ -1,3 +1,5 @@
 resources:
   - default-headers.yaml
   - ingress.yaml
+  - postgres-pvc.yaml
+  - redis-pvc.yaml

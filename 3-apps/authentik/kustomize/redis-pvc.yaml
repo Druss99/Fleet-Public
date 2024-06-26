@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: "authentik"
+  name: "authentik-redis"
+spec:
+  storageClassName: "longhorn"
+  volumeName: "pvc-8b0416f4-8f1c-4cb5-99d1-a72f463fe7f7"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "8Gi"

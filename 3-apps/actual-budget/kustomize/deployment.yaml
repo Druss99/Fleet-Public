@@ -22,8 +22,15 @@ spec:
         - env:
             - name: ACTUAL_PORT
               value: "5006"
-          image: docker.io/actualbudget/actual-server
-          imagePullPolicy: Always
+          image: docker.io/actualbudget/actual-server:24.6.0
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: "0.1"
+            limits:
+              memory: 256Mi
+              cpu: "0.5"
           name: actual
           ports:
             - containerPort: 5006

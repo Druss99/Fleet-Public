@@ -7,6 +7,7 @@ helm:
   releaseName: "nextcloud"
   chart: "nextcloud"
   repo: "https://nextcloud.github.io/helm/"
+  version: "5.0.1"
   valuesFrom:
     - secretKeyRef:
         name: nextcloud-secret-values
