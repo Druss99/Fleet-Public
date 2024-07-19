@@ -9,11 +9,6 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.uptime-kuma.russellhost.org`) 
-      kind: Rule
-      services:
-        - name: uptime-kuma
-          port: 3001
     - match: Host(`uptime-kuma.russellhost.org`) 
       kind: Rule
       services:
