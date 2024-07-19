@@ -5,7 +5,7 @@ metadata:
     app: uptime-kuma
     app.kubernetes.io/name: uptime-kuma
   name: uptime-kuma
-  namespace: media
+  namespace: uptime-kuma
 spec:
   replicas: 1
   selector:

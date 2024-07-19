@@ -5,7 +5,7 @@ metadata:
   name: "uptime-kuma"
 spec:
   storageClassName: "longhorn"
-  # volumeName: "pvc-a515083a-96ab-4b27-88df-399625e26a27"
+  volumeName: "pvc-ac13fb96-5c2c-45cc-bfe4-f0f74eac93b0"
   accessModes:
     - ReadWriteOnce
   resources:
