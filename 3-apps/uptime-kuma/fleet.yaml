@@ -1,0 +1,4 @@
+defaultNamespace: uptime-kuma
+
+kustomize:
+  dir: ./kustomize
