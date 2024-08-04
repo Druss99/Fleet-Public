@@ -1,0 +1,15 @@
+defaultNamespace: gotify
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: "gotify"
+  chart: "gotify"
+  repo: "https://pmoscode-helm.github.io/gotify/"
+  version: "2024.6.0"
+  valuesFrom:
+    - secretKeyRef:
+        name: gotify-secret-values
+        namespace: gotify
+        key: values.yaml
