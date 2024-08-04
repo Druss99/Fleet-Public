@@ -12,12 +12,12 @@ spec:
     - match: Host(`www.gotify.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: gotify
+        - name: gotify-headless
           port: 80
     - match: Host(`gotify.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: gotify
+        - name: gotify-headless
           port: 80
       middlewares:
         - name: default-headers
