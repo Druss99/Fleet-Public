@@ -1,4 +1,0 @@
-defaultNamespace: actual-budget
-
-kustomize:
-  dir: ./kustomize
