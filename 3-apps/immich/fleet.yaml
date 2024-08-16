@@ -9,6 +9,10 @@ helm:
   repo: "https://immich-app.github.io/immich-charts"
   version: "0.7.0"
   valuesFrom:
+    - configMapKeyRef:
+        name: immich-configmap
+        namespace: immich
+        key: values.yaml
     - secretKeyRef:
         name: immich-secret-values
         namespace: immich

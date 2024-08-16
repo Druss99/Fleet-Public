@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: immich-configmap
+  namespace: immich
+data:
+  values.yaml: |
+    image:
+      tag: v1.106.1
+
+    immich:
+      metrics:
+        # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
+        enabled: true
+      persistence:
+        # Main data store for all photos shared between different components.
+        library:
+          # Automatically creating the library volume is not supported by this chart
+          # You have to specify an existing PVC to use
+          existingClaim: immich
+
+    # Dependencies
+
+    postgresql:
+      enabled: true
+      image:
+        repository: tensorchord/pgvecto-rs
+        tag: pg14-v0.2.0
+      primary:
+        initdb:
+          scripts:
+            create-extensions.sql: |
+              CREATE EXTENSION cube;
+              CREATE EXTENSION earthdistance;
+              CREATE EXTENSION vectors;
+
+    redis:
+      enabled: true
+      architecture: standalone
+      auth:
+        enabled: false
