@@ -58,6 +58,7 @@ data:
 
     redis:
       enabled: true
-      usePassword: true
+      auth:
+        enabled: true
 
     replicaCount: 1
