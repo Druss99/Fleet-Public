@@ -9,6 +9,10 @@ helm:
   repo: "https://charts.goauthentik.io"
   version: "2024.6.0"
   valuesFrom:
+    - configMapKeyRef:
+        name: authentik-configmap
+        namespace: authentik
+        key: values.yaml
     - secretKeyRef:
         name: authentik-secret-values
         namespace: authentik
