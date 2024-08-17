@@ -1,2 +1,29 @@
-# https://docs.renovatebot.com/examples/self-hosting/
-# https://docs.renovatebot.com/config-presets/
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate
+spec:
+  schedule: '*/5 * * * *'
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: renovate
+              image: renovate/renovate:38.39.0
+              args:
+                - Druss99/Fleet-Public
+              env:
+                - name: RENOVATE_ENDPOINT
+                  value: "https://api.github.com/"
+                - name: RENOVATE_AUTODISCOVER
+                  value: "false"
+                - name: RENOVATE_GIT_AUTHOR
+                  value: "Renovate Bot <bot@renovateapp.com>"
+                - name: RENOVATE_PLATFORM
+                  value: "github"
+              envFrom:
+                - secretRef:
+                    name: renovate-env
+          restartPolicy: Never
