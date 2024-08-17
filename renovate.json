@@ -1,39 +1,12 @@
 {
     "extends": ["config:recommended"],
-    "packageRules": [
-      {
-        "groupName": "Helm Chart Updates",
-        "matchFileNames": ["3-apps/**/fleet.yaml"],
-        "commitMessagePrefix": "helm:",
-        "commitMessageAction": "update",
-        "major": {
-          "automerge": false
-        },
-        "minor": {
-          "automerge": false
-        },
-        "patch": {
-          "automerge": false
-        }
+    "major": {
+        "automerge": false
       },
-      {
-        "groupName": "Kubernetes Docker Image Updates",
-        "matchFileNames": ["3-apps/**/kustomize/deployment.yaml"],
-        "commitMessagePrefix": "Docker-image:",
-        "commitMessageAction": "update",
-        "automerge": false,
-        "major": {
-          "automerge": false
-        },
-        "minor": {
-          "automerge": false
-        },
-        "patch": {
-          "automerge": false
-        }
-      }
-    ],
-    "enabledManagers": ["kubernetes", "helm-values"],
-    "dependencyDashboard": true
+      "minor": {
+        "automerge": false
+      },
+      "patch": {
+        "automerge": false
   }
-  
+}
