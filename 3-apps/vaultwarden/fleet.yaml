@@ -7,6 +7,6 @@ helm:
   releaseName: "vaultwarden"
   chart: "vaultwarden"
   repo: "https://guerzon.github.io/vaultwarden"
-  version: "0.23.0"
+  version: "0.24.0"
   valuesFiles:
     - values.yaml
