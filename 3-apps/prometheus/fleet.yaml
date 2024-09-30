@@ -4,3 +4,6 @@ helm:
   chart: "kube-prometheus-stack"
   repo: "https://prometheus-community.github.io/helm-charts"
   version: "63.1"
+
+kustomize:
+  dir: ./kustomize
