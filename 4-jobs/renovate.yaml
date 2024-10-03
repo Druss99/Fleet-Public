@@ -4,7 +4,7 @@ metadata:
   name: renovate
   namespace: renovate
 spec:
-  schedule: '0 0 * * *'
+  schedule: '*/5 * * * *'
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -15,6 +15,7 @@ spec:
               image: renovate/renovate:38.39.0
               args:
                 - Druss99/Fleet-Public
+                - Druss99/Fleet-Private
               env:
                 - name: RENOVATE_ENDPOINT
                   value: "https://api.github.com/"
