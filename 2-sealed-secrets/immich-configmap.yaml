@@ -5,8 +5,8 @@ metadata:
   namespace: immich
 data:
   values.yaml: |
-    image:
-      tag: v1.116.2
+    # image:
+    #   tag: v1.116.2
 
     immich:
       metrics:
