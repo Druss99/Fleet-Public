@@ -4,7 +4,7 @@ persistence:
   accessMode: ReadWriteOnce
   size: 15Gi
   annotations: {}
-  # existingClaim: ""
+  existingClaim: "code-server-pvc"
   # hostPath: /data
 extraArgs:
   - --auth
