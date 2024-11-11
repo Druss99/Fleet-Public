@@ -4,9 +4,7 @@ metadata:
   name: proxmox
   namespace: external-services
 spec:
-  externalName: 192.168.50.252
-  type: ExternalName
+  type: ClusterIP
   ports:
-  - name: websecure
-    port: 8006
+  - port: 8006
     targetPort: 8006
