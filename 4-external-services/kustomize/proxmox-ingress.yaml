@@ -11,13 +11,13 @@ spec:
       kind: Rule
       services:
         - name: proxmox-service
-          port: 80
+          port: 8006
     - match: Host(`proxmox.russellhost.org`) # change to your domain
       kind: Rule
       services:
         - name: proxmox-service
-          port: 80
+          port: 8006
       middlewares:
         - name: default-headers
   tls:
-    certResolver: russellhost-tls
+    secretName: russellhost-tls
