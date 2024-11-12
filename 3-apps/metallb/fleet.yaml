@@ -1,0 +1,4 @@
+defaultNamespace: metallb-system
+
+kustomize:
+  dir: ./kustomize
