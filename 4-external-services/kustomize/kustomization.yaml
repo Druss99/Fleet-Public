@@ -4,4 +4,3 @@ resources:
   # - truenas-ingress.yaml
   - proxmox-svc.yaml
   - proxmox-ingress.yaml
-  - proxmox-endpoint.yaml

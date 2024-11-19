@@ -4,7 +4,10 @@ metadata:
   name: proxmox
   namespace: external-services
 spec:
-  type: ClusterIP
+  clusterIP: None
   ports:
-  - port: 8006
+  - name: http
+    port: 8006
     targetPort: 8006
+  externalIPs:
+  - 192.168.50.252
