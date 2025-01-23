@@ -5,6 +5,7 @@ metadata:
   name: "authentik-redis"
 spec:
   storageClassName: "longhorn"
+  volumeName: "pvc-50483280-2584-444a-9733-436aec25c9af"
   accessModes:
     - ReadWriteOnce
   resources:
