@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pihole
+    app.kubernetes.io/instance: pihole
+  name: pihole
+  namespace: pihole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihole
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: pihole
+      namespace: pihole
+    spec:
+      containers:
+        - env:
+            - name: TUNNEL_METRICS
+              value: 127.0.0.1:3000
+          image: visibilityspots/cloudflared
+          imagePullPolicy: Always
+          name: cloudflared
+          ports:
+            - containerPort: 53
+              name: dns
+              protocol: TCP
+            - containerPort: 67
+              name: dns-udp
+              protocol: UDP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - env:
+            - name: TZ
+              value: America/New_York
+            - name: FTLCONF_REPLY_ADDR4
+              value: pihole
+            - name: FTLCONF_webserver_api_password
+              valueFrom:
+                secretKeyRef:
+                  name: pihole-credentials
+                  key: password
+            - name: FTLCONF_dns_upstreams
+              value: 127.0.0.1#5054
+          image: pihole/pihole:latest
+          imagePullPolicy: Always
+          name: pihole
+          ports:
+            - containerPort: 80
+              name: pihole-http
+              protocol: TCP
+            - containerPort: 53
+              name: dns
+              protocol: TCP
+            - containerPort: 53
+              name: dns-udp
+              protocol: UDP
+            - containerPort: 443
+              name: pihole-ssl
+              protocol: TCP
+            - containerPort: 67
+              name: client-udp
+              protocol: UDP
+          resources: {}
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /etc/pihole
+              name: pihole
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        worker: 'true'
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: pihole
+          persistentVolumeClaim:
+            claimName: pihole-claim

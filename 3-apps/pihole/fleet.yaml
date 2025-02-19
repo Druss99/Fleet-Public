@@ -1,0 +1,4 @@
+defaultNamespace: media
+
+kustomize:
+  dir: ./kustomize
