@@ -89,4 +89,4 @@ spec:
       volumes:
         - name: pihole
           persistentVolumeClaim:
-            claimName: pihole-claim
+            claimName: pihole
