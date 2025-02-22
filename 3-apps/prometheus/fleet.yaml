@@ -3,7 +3,8 @@ helm:
   releaseName: "prometheus-community"
   chart: "kube-prometheus-stack"
   repo: "https://prometheus-community.github.io/helm-charts"
-  version: "63.1"
-
+  version: "69.4.1"
+  valuesFiles:
+    - values.yaml
 kustomize:
   dir: ./kustomize
