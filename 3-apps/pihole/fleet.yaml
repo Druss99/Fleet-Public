@@ -1,4 +1,4 @@
-defaultNamespace: media
+defaultNamespace: pihole
 
 kustomize:
   dir: ./kustomize
