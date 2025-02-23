@@ -1,6 +1,10 @@
-existingVolumeClaim:
-  claimName: "vault-pvc"
-  dataPath: "/data"
+data:
+  name: "vaultwarden-data"
+  size: "15Gi"
+  class: "longhorn"
+  path: "/data"
+  keepPvc: true
+  accessMode: "ReadWriteOnce"
 
 domain: "https://vault.russellhost.org"
 
