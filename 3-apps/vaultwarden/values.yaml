@@ -1,6 +1,6 @@
-storage:
-  existingVolumeClaim:
-    claimName: "vault-pvc"
+existingVolumeClaim:
+  claimName: "vault-pvc"
+  dataPath: "/data"
 
 domain: "https://vault.russellhost.org"
 
