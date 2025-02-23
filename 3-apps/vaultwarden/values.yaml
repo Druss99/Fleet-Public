@@ -8,7 +8,7 @@ data:
 
 domain: "https://vault.russellhost.org"
 
-signupsAllowed: false
+signupsAllowed: true
 
 ## Token for the admin interface, preferably an Argon2 PCH string
 adminToken:
