@@ -1,3 +1,0 @@
-hostname: rancher.russellhost.org
-ingress:
-  enabled: false

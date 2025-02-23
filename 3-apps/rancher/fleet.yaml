@@ -2,11 +2,3 @@ defaultNamespace: cattle-system
 
 kustomize:
   dir: ./kustomize
-
-helm:
-  releaseName: "rancher"
-  chart: "rancher"
-  repo: "https://releases.rancher.com/server-charts/latest"
-  version: "v2.9.3"
-  valuesFiles:
-    - values.yaml
