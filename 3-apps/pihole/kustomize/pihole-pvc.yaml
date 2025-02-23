@@ -5,7 +5,6 @@ metadata:
   name: pihole
 spec:
   storageClassName: "longhorn"
-  volumeName:	pvc-ed8a1aad-5fb3-4567-a8b6-2dbbe8e87336
   accessModes:
     - ReadWriteOnce
   resources:
