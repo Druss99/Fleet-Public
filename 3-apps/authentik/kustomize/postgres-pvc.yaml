@@ -5,7 +5,7 @@ metadata:
   name: "authentik-postgres"
 spec:
   storageClassName: "longhorn"
-  volumeName: "pvc-a515083a-96ab-4b27-88df-399625e26a27"
+  volumeName: "authentik-postgres"
   accessModes:
     - ReadWriteOnce
   resources:
