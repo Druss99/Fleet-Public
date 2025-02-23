@@ -1,7 +1,6 @@
-data:
-  name: "vaultwarden-data"
-  size: "15Gi"
-  class: "longhorn"
+storage:
+  existingVolumeClaim:
+    claimName: "vault-pvc"
 
 domain: "https://vault.russellhost.org"
 
