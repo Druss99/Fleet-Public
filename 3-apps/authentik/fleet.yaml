@@ -7,7 +7,7 @@ helm:
   releaseName: "authentik"
   chart: "authentik"
   repo: "https://charts.goauthentik.io"
-  version: "2024.12.3"
+  version: "2024.8.4"
   valuesFrom:
     - configMapKeyRef:
         name: authentik-configmap
