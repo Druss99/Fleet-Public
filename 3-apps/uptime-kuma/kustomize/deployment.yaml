@@ -19,7 +19,7 @@ spec:
       nodeSelector:
         worker: "true"
       containers:
-        - image: louislam/uptime-kuma:1.23.13
+        - image: louislam/uptime-kuma:1.23.16
           imagePullPolicy: IfNotPresent
           name: uptime-kuma
           resources:
