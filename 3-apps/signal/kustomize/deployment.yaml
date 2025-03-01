@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: signal
+    app.kubernetes.io/name: signal
+  name: signal
+  namespace: signal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: signal
+  template:
+    metadata:
+      labels:
+        app: signal
+    spec:
+      nodeSelector:
+        worker: "true"
+      containers:
+        - env:
+            - name: MODE
+              value: native
+          image: bbernhard/signal-cli-rest-api:latest
+          imagePullPolicy: Always
+          name: signal
+          resources: {}
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /home/.local/share/signal-cli
+              name: signal
+      restartPolicy: Always
+      volumes:
+        - name: signal
+          persistentVolumeClaim:
+            claimName: signal

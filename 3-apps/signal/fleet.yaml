@@ -1,0 +1,4 @@
+defaultNamespace: signal
+
+kustomize:
+  dir: ./kustomize
