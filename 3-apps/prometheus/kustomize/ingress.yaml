@@ -21,5 +21,3 @@ spec:
           port: 80
       middlewares:
         - name: default-headers
-  tls:
-    secretName: russellhost-tls
