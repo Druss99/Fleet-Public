@@ -12,12 +12,12 @@ spec:
     - match: Host(`www.authentik.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: authentik
+        - name: authentik-server
           port: 80
     - match: Host(`authentik.russellhost.org`) # change to your domain
       kind: Rule
       services:
-        - name: authentik
+        - name: authentik-server
           port: 80
       middlewares:
         - name: default-headers
