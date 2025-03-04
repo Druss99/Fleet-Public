@@ -7,7 +7,7 @@ helm:
   releaseName: "nextcloud"
   chart: "nextcloud"
   repo: "https://nextcloud.github.io/helm/"
-  version: "6.6.4"
+  version: "6.6.6"
   valuesFrom:
     - configMapKeyRef:
         name: nextcloud-configmap
